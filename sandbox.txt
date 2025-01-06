@@ -1,1 +1,7 @@
-npm install @tiptap/extension-image@2.10.2 --legacy-peer-deps
+
+  const onChange = (href: string) => {
+    editor?.chain().focus().extendMarkRange("link").setLink({ href }).run();
+    setValue("");
+  };
+
+
