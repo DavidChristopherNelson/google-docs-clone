@@ -5,7 +5,6 @@ interface DocumentsLayoutProps {
 const DocumentsLayout = ({ children }: DocumentsLayoutProps) => {
   return ( 
     <div className="flex flex-col gap-y-4">
-      <p className="w-full bg-red-500">Document navbar</p>
       {children}
     </div> 
   );
