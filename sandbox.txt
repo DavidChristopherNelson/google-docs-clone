@@ -1,7 +1,1 @@
-
-  const onChange = (href: string) => {
-    editor?.chain().focus().extendMarkRange("link").setLink({ href }).run();
-    setValue("");
-  };
-
-
+npx create-liveblocks-app@2.20240816.0 --init --framework react
