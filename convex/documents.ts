@@ -111,8 +111,6 @@ export const updateById = mutation({
     }
 
     const isOwner = document.ownerId === user.subject;
-    const isOrganizationMember = 
-      !!(document.organizationId && document.organizationId === organizationId);
 
     if (!isOwner) {
       throw new ConvexError("Unarthorized");
