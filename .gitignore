@@ -40,4 +40,6 @@ yarn-error.log*
 next-env.d.ts
 
 # sandbox
-sandbox.txt
+sandbox.*
+structure.*
+show_structure.py
