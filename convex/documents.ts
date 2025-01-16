@@ -31,7 +31,7 @@ export const create = mutation({
       throw new ConvexError("Unathorized");
     }
 
-    const organizationId = (user.organisation_id ?? undefined) as
+    const organizationId = (user.organization_id ?? undefined) as
       | string
       | undefined;
 
@@ -53,11 +53,15 @@ export const get = query({
       throw new ConvexError("Unauthorized");
     }
     
-    const organizationId = (user.organisation_id ?? undefined) as
+    const organizationId = (user.organization_id ?? undefined) as
       | string
       | undefined;
 
+    console.log({ user });
+    console.log({ organizationId });
+
     if (search && organizationId) {
+      console.log("(search && organizationId)");
       return await ctx.db
         .query("documents")
         .withSearchIndex("search_title", (q) => 
@@ -67,6 +71,7 @@ export const get = query({
     }
     
     if (search) {
+      console.log("(search)");
       return await ctx.db
         .query("documents")
         .withSearchIndex("search_title", (q) => 
@@ -75,12 +80,14 @@ export const get = query({
     }
 
     if (organizationId) {
+      console.log("(organizationId)");
       return await ctx.db
         .query("documents")
         .withIndex("by_organization_id", (q) => q.eq("organizationId", organizationId))
         .paginate(paginationOpts);
     }
 
+    console.log("failed all if statements");
     return await ctx.db
       .query("documents")
       .withIndex("by_owner_id", (q) => q.eq("ownerId", user.subject))
@@ -142,7 +149,6 @@ export const updateById = mutation({
 export const getById = query({
   args: {id: v.id("documents") },
   handler: async (ctx, { id }) => {
-
     const document = await ctx.db.get(id);
 
     if (!document) {

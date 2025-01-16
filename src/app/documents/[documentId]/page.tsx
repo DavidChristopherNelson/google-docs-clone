@@ -28,11 +28,9 @@ const DocumentIdPage = async ({ params }: DocumentIdPageProps) => {
   );
 
   if (!preloadedDocument) {
-    console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
     redirect("/");
   }
 
-  console.log("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
   return <Document preloadedDocument={preloadedDocument}/>
 }
 
