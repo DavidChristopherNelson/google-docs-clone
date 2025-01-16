@@ -29,7 +29,6 @@ const DocumentIdPage = async ({ params }: DocumentIdPageProps) => {
 
   if (!preloadedDocument) {
     redirect("/");
-    redirect("/");
   }
 
   return <Document preloadedDocument={preloadedDocument}/>
