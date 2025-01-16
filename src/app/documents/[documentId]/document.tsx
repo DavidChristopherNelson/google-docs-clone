@@ -15,6 +15,10 @@ interface DocumentProps {
 export const Document = ({ preloadedDocument }: DocumentProps) => {
   const document = usePreloadedQuery(preloadedDocument);
 
+  if (!document) {
+    return null;
+  }
+
   return ( 
     <Room>
       <div className="min-h-screen bg-[#FAFBFD]">

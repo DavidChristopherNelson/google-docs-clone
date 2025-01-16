@@ -4,6 +4,8 @@ import { preloadQuery } from "convex/nextjs";
 import { Document } from "./document";
 import { api } from  "../../../../convex/_generated/api";
 import { Id } from "../../../../convex/_generated/dataModel";
+import { redirect } from "next/navigation";
+
 
 interface DocumentIdPageProps {
   params: Promise<{ documentId: Id<"documents"> }>;
@@ -26,9 +28,11 @@ const DocumentIdPage = async ({ params }: DocumentIdPageProps) => {
   );
 
   if (!preloadedDocument) {
-    throw new Error("Document not found");
+    console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+    redirect("/");
   }
 
+  console.log("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
   return <Document preloadedDocument={preloadedDocument}/>
 }
 
