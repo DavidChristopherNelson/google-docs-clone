@@ -39,6 +39,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# terraform
+.terraform/
+
 # sandbox
 sandbox.*
 structure.*
